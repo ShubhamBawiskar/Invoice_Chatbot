@@ -1,0 +1,47 @@
+```json
+{
+  "InvoiceDetails": {
+    "OrderNumber": "403-8168175-4927564",
+    "InvoiceNumber": "BOM5-107218",
+    "OrderDate": "2024-10-13",
+    "InvoiceDate": "2024-10-13"
+  },
+  "CustomerInfo": {
+    "Name": "Honasa Consumer Ltd",
+    "AuthorizedSignatory": "",
+    "BillingAddress": {
+      "Name": "Shubham Bawiskar",
+      "Address": "Six Bungalows, Old Mumbai Agra road, near Nisarg garden, Vasind West, Shahapur, Thane Vasind, MAHARASHTRA, 421601 IN"
+    },
+    "ShippingAddress": {
+      "Name": "Shubham Bawiskar",
+      "Address": "Six Bungalows, Old Mumbai Agra road, near Nisarg garden, Vasind West, Shahapur, Thane Vasind, MAHARASHTRA, 421601 IN"
+    }
+  },
+  "SellerInfo": {
+    "Name": "ASSPL-Amazon Seller Services Pvt. Ltd., ARIPL-Amazon Retail India Pvt. Ltd. (only where Amazon Retail India Pvt. Ltd. fulfillment center is co-located)",
+    "PANNo": "",
+    "GSTRegistrationNo": ""
+  },
+  "ProductInfo": [
+    {
+      "Description": "Mamaearth Rosemary Hair Growth Oil with Rosemary & Methi Dana for Promoting Hair Growth - 200 ml | Controls Hair Fall | Strengthens Hair | Stimulates New Hair Growth | Healthy Nourished Hair | B0CXXX2DTV (8904417313574)",
+      "UnitPrice": 422.88,
+      "Discount": 211.86,
+      "NetAmount": 249.00,
+      "TaxRate": 9,
+      "TaxType": "CGST",
+      "TaxAmount": 18.99
+    }
+  ],
+  "TaxInfo": {
+    "TotalTaxAmount": 37.98,
+    "InvoiceValue": 249.00
+  },
+  "PaymentInfo": {
+    "TransactionID": "1111ELioDf1tIBxktbB47o9jA",
+    "DateAndTime": "2024-10-13T11:58:55",
+    "ModeOfPayment": "GiftCard"
+  }
+}
+```
