@@ -50,39 +50,37 @@
 
 # ********************************************************
 
-# src/chat.py
 import json
-import os
 from langchain_ollama.chat_models import ChatOllama
-from langchain.prompts import PromptTemplate
 
-# Initialize the LLM
+# Initialize ChatOllama
 llm = ChatOllama(model="llama3.1", temperature=0.7)
 
-def get_invoice_data_as_json(filename):
+def answer_query(question: str, extracted_data_dict: dict) -> str:
     """
-    Retrieve the invoice data from a JSON file.
-    :param filename: The name of the JSON file to read
-    :return: Parsed JSON data
+    Function to get an answer to a user query based on extracted invoice data.
+    :param question: The user's question.
+    :param extracted_data_dict: Dictionary of extracted data for the session.
+    :return: The response from the LLM.
     """
-    filepath = os.path.join("invoice_json", filename)
-    with open(filepath, "r") as file:
-        return json.load(file)
+    try:
+        # Combine all extracted data into a single context for the LLM
+        context = "\n".join([f"File: {file_name}\nData: {json.dumps(data)}" 
+                              for file_name, data in extracted_data_dict.items()])
 
-def ask_question_about_invoice(invoice_data, question):
-    """
-    Ask a question about the invoice data using LLM.
-    :param invoice_data: The invoice data to refer to
-    :param question: The user's question
-    :return: The LLM's response
-    """
-    prompt_template = f"""
+        # Prepare the prompt
+        prompt_template = f"""
         You are a virtual assistant knowledgeable about invoices.
-        Here is the invoice data: {json.dumps(invoice_data)}
-        User question: {question}
-        Please provide a clear and concise answer based on the invoice data.
-    """
+        Here is the invoice data:
+        {context}
+        Based on the above data, answer the following question: {question}
+        """
 
-    # Get the response from LLM
-    response = llm(prompt_template)
-    return response
+        # Get the response from the LLM
+        response = llm.invoke(prompt_template)
+        return response
+
+    except Exception as e:
+        raise Exception(f"Error in answering query: {e}")
+
+

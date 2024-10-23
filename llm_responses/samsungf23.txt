@@ -1,0 +1,74 @@
+```json
+{
+  "InvoiceDetails": {
+    "InvoiceNumber": "# EAAAAC-20188419",
+    "InvoiceDate": "10-05-2022",
+    "TotalItems": 1,
+    "GrandTotal": 0.00
+  },
+  "CustomerInfo": {
+    "Name": "Shubham Bawiskar",
+    "Address": {
+      "ShipTo": "Six bungalows, near nisarga garden, Khatiwali road.",
+      "BillTo": "Six bungalows, near nisarga garden, Khatiwali road."
+    },
+    "Phone": "xxxxxxxxxxx"
+  },
+  "SellerInfo": [
+    {
+      "Name": "Jeeves consumer services Private Limited",
+      "GSTIN": "29AABCJ9421C1ZP",
+      "Address": {
+        "ShipFrom": "L-169, 13th Cross, 5th Main,, Sector - 6, HSR Layout,, BANGALORE, KARNATAKA, 560102, IN-KA"
+      }
+    },
+    {
+      "Name": "Sane Retails Private Limited",
+      "GSTIN": "27AAXCS0974R1Z3",
+      "Address": {
+        "ShipFrom": "Warehouse Building Nos. WE-II, Renaissance IntegratedIndustrial Area, Village Vashere, Bhiwandi , Thane , Mumbai , Maharashtra -421302, Bhiwandi, MAHARASHTRA, India - 421302, IN-MH"
+      }
+    }
+  ],
+  "ShippingInfo": {
+    "ShipTo": [
+      {
+        "Name": "Shubham Bawiskar",
+        "Address": "Six bungalows, near nisarga garden, Khatiwali road.",
+        "Phone": "xxxxxxxxxxx"
+      },
+      {
+        "Name": "Shubham Bawiskar",
+        "Address": "Six bungalows, near nisarga garden, Khatiwali road.",
+        "Phone": "xxxxxxxxxxx"
+      }
+    ]
+  },
+  "ProductInfo": [
+    {
+      "Title": "SAMSUNG Galaxy F23 5G (Aqua Blue, 128 GB)",
+      "Quantity": 1,
+      "Price": 14999.00
+    },
+    {
+      "Title": "Handsets",
+      "Quantity": 1,
+      "Price": 13999.00
+    }
+  ],
+  "TaxInfo": [
+    {
+      "CGST": 9.0,
+      "SGST/UTGST": 9.0,
+      "Amount": 11863.56,
+      "Rate": 1067.72
+    },
+    {
+      "CGST": 9.0,
+      "SGST/UTGST": 9.0,
+      "Amount": 1067.72,
+      "Rate": 13999.00
+    }
+  ]
+}
+```

@@ -141,38 +141,97 @@
 
 # ********************************************************
 
+# import streamlit as st
+# import traceback
+# import json
+# from utils import read_file  # Function to read and extract text from the uploaded file
+# from extractors import extract_invoice_data, save_llm_response  # Import functions for extraction and saving
+# from convert import convert_llm_responses_to_json  # Import the conversion function
+
+
+# # Streamlit app setup
+# st.title("Invoice Data Extractor")
+
+# # Allow uploading multiple PDF files
+# uploaded_files = st.file_uploader("Upload Invoices (PDF)", type=["pdf"], accept_multiple_files=True)
+
+# if uploaded_files:
+#     for uploaded_file in uploaded_files:
+#         try:
+#             # Read the content of each uploaded PDF
+#             text = read_file(uploaded_file)
+
+#             # Extract the invoice data using the LLM
+#             extracted_data = extract_invoice_data(text)
+
+#             if extracted_data:
+#                 # Save the raw response to the folder
+#                 filename = uploaded_file.name.split(".")[0]  # Use the filename without extension
+#                 saved_path = save_llm_response(extracted_data, filename)
+
+#             else:
+#                 st.error(f"No data extracted from the invoice: {uploaded_file.name}")
+
+#         except Exception as e:
+#             st.error(f"An error occurred while processing the invoice: {e}")
+
+#     # Convert the raw LLM responses to JSON files
+#     convert_llm_responses_to_json()  # This function can now handle all saved response files
+
+
+# *************************************
+
 import streamlit as st
 import traceback
 import json
 from utils import read_file  # Function to read and extract text from the uploaded file
 from extractors import extract_invoice_data, save_llm_response  # Import functions for extraction and saving
 from convert import convert_llm_responses_to_json  # Import the conversion function
+from chat import answer_query  # Import the query answering function
 
 # Streamlit app setup
 st.title("Invoice Data Extractor")
 
-# Allow uploading multiple PDF files
-uploaded_files = st.file_uploader("Upload Invoices (PDF)", type=["pdf"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("Upload Invoices (PDF or TXT)", type=["pdf", "txt"], accept_multiple_files=True)
+
+# Dictionary to hold extracted data for the current session
+extracted_data_dict = {}
 
 if uploaded_files:
-    for uploaded_file in uploaded_files:
-        try:
-            # Read the content of each uploaded PDF
+    try:
+        for uploaded_file in uploaded_files:
+            # Ensure the read_file function correctly reads and extracts text from the file
             text = read_file(uploaded_file)
 
             # Extract the invoice data using the LLM
             extracted_data = extract_invoice_data(text)
+            extracted_data_dict[uploaded_file.name] = extracted_data  # Store extracted data
 
             if extracted_data:
                 # Save the raw response to the folder
                 filename = uploaded_file.name.split(".")[0]  # Use the filename without extension
                 saved_path = save_llm_response(extracted_data, filename)
 
+                # Convert the raw LLM responses to JSON files
+                convert_llm_responses_to_json()  # Call without parameters to convert all relevant files
+
+                # st.success(f"Extracted data has been saved to: {saved_path}")
             else:
-                st.error(f"No data extracted from the invoice: {uploaded_file.name}")
+                st.error("No data extracted from the invoice.")
 
+    except Exception as e:
+        st.error(f"An error occurred while processing the invoice: {e}")
+
+# Question/Answer Section
+st.subheader("Ask Questions About the Invoice Data")
+
+if extracted_data_dict:
+    question = st.text_input("Enter your question:")
+    
+    if st.button("Get Answer"):
+        try:
+            # Pass the extracted data to the answer_query function
+            response = answer_query(question, extracted_data_dict)
+            st.text_area("Answer", value=response, height=300)
         except Exception as e:
-            st.error(f"An error occurred while processing the invoice: {e}")
-
-    # Convert the raw LLM responses to JSON files
-    convert_llm_responses_to_json()  # This function can now handle all saved response files
+            st.error(f"An error occurred while getting the answer: {e}")

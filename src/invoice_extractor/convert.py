@@ -2,24 +2,26 @@
 # import json
 
 # def convert_llm_responses_to_json():
-#     # Define the directories for raw responses and JSON output
+#     """
+#     Convert the saved LLM response files to JSON.
+#     Only considers files saved in the 'llm_responses' directory during the current session.
+#     """
+#     # Define the directory for raw responses and JSON output
 #     raw_responses_dir = "llm_responses"  # Ensure this matches your structure
 #     json_output_dir = "invoice_json"  # Output directory for JSON files
 
 #     # Create the JSON output directory if it doesn't exist
 #     os.makedirs(json_output_dir, exist_ok=True)
-#     print(f"Checking directory: {raw_responses_dir}")
 
-#     # Iterate through each file in the raw responses directory
+#     # List all files in the raw responses directory
 #     for filename in os.listdir(raw_responses_dir):
 #         if filename.endswith(".txt"):  # Assuming raw responses are saved as .txt files
 #             file_path = os.path.join(raw_responses_dir, filename)
-#             print(f"Processing file: {file_path}")
 
 #             with open(file_path, "r") as file:
 #                 raw_data = file.read()
 
-#             # Extract the JSON part from the raw data
+#             # Attempt to extract JSON from the raw data
 #             json_start = raw_data.find('{')  # Find the first '{' character
 #             json_end = raw_data.rfind('}')  # Find the last '}' character
 
@@ -28,6 +30,11 @@
 #                 try:
 #                     # Load the JSON string to ensure it's valid
 #                     extracted_json = json.loads(json_str)
+
+#                     # If there are additional characters after the JSON object, handle them
+#                     additional_data = raw_data[json_end + 1:].strip()
+#                     if additional_data:
+#                         print(f"Warning: Extra data found after JSON in {filename}. Data: {additional_data}")
 
 #                     # Define the output path for the JSON file
 #                     json_filename = f"{os.path.splitext(filename)[0]}.json"
@@ -52,8 +59,7 @@
 # if __name__ == "__main__":
 #     convert_llm_responses_to_json()
 
-# ************************************
-
+# *****************************************
 
 import os
 import json
@@ -78,7 +84,7 @@ def convert_llm_responses_to_json():
             with open(file_path, "r") as file:
                 raw_data = file.read()
 
-            # Extract the JSON part from the raw data
+            # Attempt to extract JSON from the raw data
             json_start = raw_data.find('{')  # Find the first '{' character
             json_end = raw_data.rfind('}')  # Find the last '}' character
 
@@ -87,6 +93,11 @@ def convert_llm_responses_to_json():
                 try:
                     # Load the JSON string to ensure it's valid
                     extracted_json = json.loads(json_str)
+
+                    # If there are additional characters after the JSON object, handle them
+                    additional_data = raw_data[json_end + 1:].strip()
+                    if additional_data:
+                        print(f"Warning: Extra data found after JSON in {filename}. Data: {additional_data}")
 
                     # Define the output path for the JSON file
                     json_filename = f"{os.path.splitext(filename)[0]}.json"
@@ -110,3 +121,4 @@ def convert_llm_responses_to_json():
 # Example usage
 if __name__ == "__main__":
     convert_llm_responses_to_json()
+
