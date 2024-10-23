@@ -1,0 +1,56 @@
+```
+{
+  "InvoiceDetails": {
+    "OrderNumber": "402-9314751-6521932",
+    "InvoiceNumber": "BLR7-234256",
+    "OrderDate": "2024-10-19",
+    "InvoiceDate": "2024-10-19"
+  },
+  "CustomerInfo": {
+    "Name": "Shubham Bawiskar",
+    "Address": {
+      "Street": "Six Bungalows, Old Mumbai Agra road, near Nisarg garden, Vasind West, Shahapur",
+      "City": "Vasind",
+      "State": "Maharashtra",
+      "ZipCode": 421601,
+      "Country": "IN"
+    }
+  },
+  "SellerInfo": {
+    "Name": "VALUECART PRIVATE LIMITED",
+    "Address": {
+      "Street": "Sy No. 524/1,2,3,4,6, 525/1,2,3,4,5,6,526/3,4,5,6,527 of madivala village, and Sy no.51/1 of thatanahalli village, kasaba hobli, anekal taluk, Bangalore urban district",
+      "City": "Bangalore",
+      "State": "Karnataka",
+      "ZipCode": 562107,
+      "Country": "IN"
+    },
+    "GSTRegistrationNo": "29AAFCV5265N1ZK",
+    "PANNumber": "AAFCV5265N"
+  },
+  "ShippingInfo": {
+    "Name": "Shubham Bawiskar",
+    "Address": {
+      "Street": "Gokul Vrindavan, At.post Innanje Tal. Kaup Dist.",
+      "City": "MOODABETTU",
+      "State": "Karnataka",
+      "ZipCode": 576122,
+      "Country": "IN"
+    }
+  },
+  "ProductInfo": [
+    {
+      "Description": "INKBIRDPLUS Portable CO2 Detector Mini Indoor CO2 Monitor NDIR Sensor with Full Color LCD Indicator Light Alarm Auto Calibration for Home Office Travel | B0CG348YS1 ( IB-0800-BI) ",
+      "UnitPrice": 2053.38,
+      "Quantity": 1,
+      "TaxRate": 9,
+      "TaxAmount": 184.81
+    }
+  ],
+  "TaxInfo": {
+    "CGST": 184.81,
+    "SGST": 184.81,
+    "TotalTax": 369.62
+  }
+}
+```
