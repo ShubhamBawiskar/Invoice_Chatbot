@@ -6,6 +6,8 @@ response
 data
 llm_response
 invoice_json
-chat.py
-Invoice_Extractor.py
+src/invoice_extractor/chat.py
 Q&A.png
+src/invoice_extractor/main.py
+src/invoice_extractor/__pycache__
+Invoice_result.mp4
