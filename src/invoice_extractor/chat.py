@@ -127,15 +127,15 @@
 
 
 import json
-from langchain_ollama.chat_models import ChatOllama
-from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain_ollama.chat_models import ChatOllama
 
-# Initialize ChatOllama
-llm = ChatOllama(model="llama3.1", temperature=0.7)
+# Initialize ChatOllama for answering questions
+llm = ChatOllama(model="llama3.1", temperature=0.3)
 
-# Define the prompt template for LangChain
-prompt = PromptTemplate(
+# Define the prompt template for answering questions based on extracted data
+question_prompt = PromptTemplate(
     input_variables=["context", "question"],
     template="""
     You are a virtual assistant knowledgeable about invoices.
@@ -145,8 +145,8 @@ prompt = PromptTemplate(
     """
 )
 
-# Create the LLMChain using the template and the LLM model
-llm_chain = LLMChain(llm=llm, prompt=prompt)
+# Create the LLMChain for answering questions
+llm_chain = LLMChain(llm=llm, prompt=question_prompt)
 
 def answer_query(question: str, extracted_data_dict: dict) -> str:
     """
@@ -161,9 +161,10 @@ def answer_query(question: str, extracted_data_dict: dict) -> str:
                              for file_name, data in extracted_data_dict.items()])
 
         # Use the LLMChain to format the prompt and get the response
-        response = llm_chain.run({"context": context, "question": question})
+        response = llm_chain.invoke({"context": context, "question": question})
 
-        return response
+        # Assuming response is a dictionary, extract the 'text' part
+        return response.get("text", "No response text available.")  # Return only the text part
 
     except Exception as e:
         raise Exception(f"Error in answering query: {e}")

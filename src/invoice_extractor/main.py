@@ -181,46 +181,32 @@
 
 # *************************************
 
-import streamlit as st
+import os
+import asyncio
 import traceback
-import json
-from utils import read_file  # Function to read and extract text from the uploaded file
-from extractors import extract_invoice_data, save_llm_response  # Import functions for extraction and saving
-from convert import convert_llm_responses_to_json  # Import the conversion function
-from chat import answer_query  # Import the query answering function
+import streamlit as st
+from utils import read_file
+from extractors import process_uploaded_files
+from chat import answer_query
 
 # Streamlit app setup
 st.title("Invoice Data Extractor")
 
+# File uploader
 uploaded_files = st.file_uploader("Upload Invoices (PDF or TXT)", type=["pdf", "txt"], accept_multiple_files=True)
 
 # Dictionary to hold extracted data for the current session
 extracted_data_dict = {}
 
+# Main logic for handling uploaded files and user queries
 if uploaded_files:
     try:
-        for uploaded_file in uploaded_files:
-            # Ensure the read_file function correctly reads and extracts text from the file
-            text = read_file(uploaded_file)
-
-            # Extract the invoice data using the LLM
-            extracted_data = extract_invoice_data(text)
-            extracted_data_dict[uploaded_file.name] = extracted_data  # Store extracted data
-
-            if extracted_data:
-                # Save the raw response to the folder
-                filename = uploaded_file.name.split(".")[0]  # Use the filename without extension
-                saved_path = save_llm_response(extracted_data, filename)
-
-                # Convert the raw LLM responses to JSON files
-                convert_llm_responses_to_json()  # Call without parameters to convert all relevant files
-
-                # st.success(f"Extracted data has been saved to: {saved_path}")
-            else:
-                st.error("No data extracted from the invoice.")
+        asyncio.run(process_uploaded_files(uploaded_files, extracted_data_dict))
+        st.success("All files processed successfully.")
 
     except Exception as e:
-        st.error(f"An error occurred while processing the invoice: {e}")
+        st.error(f"An error occurred while processing the invoices: {e}")
+        traceback.print_exc()
 
 # Question/Answer Section
 st.subheader("Ask Questions About the Invoice Data")
@@ -230,8 +216,9 @@ if extracted_data_dict:
     
     if st.button("Get Answer"):
         try:
-            # Pass the extracted data to the answer_query function
             response = answer_query(question, extracted_data_dict)
-            st.text_area("Answer", value=response, height=300)
+            st.text_area("Answer", value=response, height=300)  # Display only the 'text' part
         except Exception as e:
             st.error(f"An error occurred while getting the answer: {e}")
+            traceback.print_exc()
+

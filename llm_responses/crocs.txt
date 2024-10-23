@@ -5,57 +5,31 @@
     "InvoiceNumber": "# FAEVJG2401837170Tax Invoice"
   },
   "CustomerInfo": {
-    "BillingAddress": "Roshan Kakade \n002, gulmohar apt 3, Vikas residency, Vashind 421601 Maharashtra",
-    "Phone": "xxxxxxx",
-    "OrderID": "OD429381037795013100"
+    "BillingAddress": {
+      "Name": "Roshan Kakade",
+      "Address": "002, gulmohar apt 3, Vikas residency, Vashind 421601 Maharashtra",
+      "Phone": "xxxxxxxxxxx"
+    }
   },
   "SellerInfo": {
-    "SoldBy": "Tech-Connect Retail Private Limited",
-    "Ship-from Address": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101, IN-MH",
-    "GSTIN": "27AAICA4872D1ZO"
+    "CompanyName": "Tech-Connect Retail Private Limited",
+    "GSTIN": "27AAICA4872D1ZO",
+    "Address": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101"
   },
   "ShippingInfo": {
-    "TotalItems": 1
+    "ShipFromAddress": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101"
   },
   "ProductInfo": {
-    "ProductTitle": "Wrist Watches",
-    "Qty": 1,
+    "ProductName": "Wrist Watches",
+    "HSN/SAC": "91021100FOSSIL RHETT Analog Watch - For Men",
+    "Quantity": 1,
     "GrossAmount": 3848.00,
-    "Discounts": -386.00,
-    "TaxableValue": 2933.90,
+    "Discounts": 386.00,
+    "TaxableValue": 2933.90
+  },
+  "TaxInfo": {
     "CGST": 264.05,
-    "SGST/UTGST": 264.05
-  },
-  "TaxInfo": {
-    "CGST": 9.0,
-    "SGST/UTGST": 9.0
-  }
-}
-
-{
-  "InvoiceDetails": {
-    "OrderDate": "10-10-2023",
-    "InvoiceDate": "14-10-2023",
-    "InvoiceNumber": "# BFFKA24113281001Tax Invoice"
-  },
-  "CustomerInfo": {},
-  "SellerInfo": {
-    "SoldBy": "Flipkart Internet Private Limited",
-    "Ship-from Address": "Buildings Alyssa, Begonia & Clover, Embassy Tech Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, Bengaluru, Karnataka, IN - 560103",
-    "GSTIN": "29AACCF0683K1ZD"
-  },
-  "ShippingInfo": {
-    "TotalItems": 1
-  },
-  "ProductInfo": {
-    "Description": "SAC: 998599 Offer Handling Fee",
-    "Qty": 1,
-    "GrossAmount": 37.00,
-    "Discount": 0.00,
-    "TaxableValue": 31.36,
+    "SGST/UTGST": 264.05,
     "IGST": 5.64
-  },
-  "TaxInfo": {
-    "IGST": 18.0
   }
 }

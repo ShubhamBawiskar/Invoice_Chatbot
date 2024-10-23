@@ -2,7 +2,7 @@
     "InvoiceDetails": {
         "OrderDate": "14-10-2023",
         "InvoiceDate": "14-10-2023",
-        "InvoiceNumber": "#FAEVJG2401837170Tax Invoice"
+        "InvoiceNumber": "# FAEVJG2401837170Tax Invoice"
     },
     "CustomerInfo": {
         "BillingAddress": {
@@ -11,63 +11,25 @@
             "Phone": "xxxxxxxxxxx"
         }
     },
-    "SellerInfo": [
-        {
-            "Name": "Tech-Connect Retail Private Limited",
-            "GSTIN": "27AAICA4872D1ZO",
-            "Address": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101, IN-MH"
-        },
-        {
-            "Name": "Flipkart Internet Private Limited",
-            "GSTIN": "29AACCF0683K1ZD",
-            "Address": "Buildings Alyssa, Begonia & Clover, Embassy Tech Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, Bengaluru, Karnataka - 560103"
-        }
-    ],
+    "SellerInfo": {
+        "CompanyName": "Tech-Connect Retail Private Limited",
+        "GSTIN": "27AAICA4872D1ZO",
+        "Address": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101"
+    },
     "ShippingInfo": {
-        "ShipFromAddress": [
-            {
-                "Name": "Tech-Connect Retail Private Limited",
-                "Address": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101, IN-MH"
-            },
-            {
-                "Name": "Flipkart Internet Private Limited",
-                "Address": "Buildings Alyssa, Begonia & Clover, Embassy Tech Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, Bengaluru, Karnataka - 560103"
-            }
-        ]
+        "ShipFromAddress": "Warehouse Saidham, G warehouse, At Village - Dohale, Post Padgha,, Opp Vaishnavdevi Mandir, Taluka Bhiwandi, Dist Thane, Bhiwandi , MAHARASHTRA, India - 421101"
     },
     "ProductInfo": {
-        "Title": [
-            "Wrist Watches",
-            "Offer Handling Fee"
-        ],
-        "Description": [
-            "FSN: WATFFDFZHZAVGZHJ HSN/SAC: 91021100FOSSIL RHETT Analog Watch - For Men Warranty: This is a genuine Fossil product. The product comes with a standard brand warranty of 2 Years.",
-            "SAC: 998599"
-        ],
-        "Quantity": [
-            1,
-            1
-        ],
-        "GrossAmount": [
-            3848.0,
-            37.0
-        ],
-        "DiscountsCoupons": [
-            -386.0,
-            0.0
-        ],
-        "TaxableValue": [
-            2933.9,
-            31.36
-        ],
-        "CGSTSGSTUTGST": [
-            264.05,
-            5.64
-        ]
+        "ProductName": "Wrist Watches",
+        "HSN/SAC": "91021100FOSSIL RHETT Analog Watch - For Men",
+        "Quantity": 1,
+        "GrossAmount": 3848.0,
+        "Discounts": 386.0,
+        "TaxableValue": 2933.9
     },
     "TaxInfo": {
-        "CGST": 9.0,
-        "SGSTUTGST": 9.0,
-        "IGST": 18.0
+        "CGST": 264.05,
+        "SGST/UTGST": 264.05,
+        "IGST": 5.64
     }
 }
